@@ -17,13 +17,16 @@ public final class Servlet extends HttpServlet
 	 * 
 	 */
 	private static final long serialVersionUID = 3694568157820123146L;
-	
+
+	// File written for glue command integration
+	// TODO should be moved to config along with any sensitive stuff
 	private static final String GLUE_CMD_DIR = "g:\\source\\git\\Glue\\Tube\\bin\\Release\\gluecmd.txt";
-	
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException
 	{
+		// This stuff is mostly hello world type placeholder content 
+		// to prove servelet is working with a simple case
 		resp.setContentType("text/plain"); 
 		PrintWriter out = resp.getWriter();
 
@@ -79,6 +82,7 @@ public final class Servlet extends HttpServlet
 			File file = new File(GLUE_CMD_DIR);
 			FileWriter fileWriter = new FileWriter(file, true);
 			
+			// TODO occasionally need to clear old commands from the file
 			fileWriter.write(command + "\r\n");
 			fileWriter.close();
 			
